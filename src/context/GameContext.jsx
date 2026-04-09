@@ -290,7 +290,18 @@ export function GameProvider({ children }) {
       // Update teams array
       const teams = (remote.teams || []).map(t => {
         if (t.id !== teamId) return t;
-        if ((t.players || []).includes(pId)) return t; // already joined
+        const teams = state.teams.map(t => {
+  if (t.id !== teamId) return t;
+  if ((t.players || []).includes(playerId)) return t; // 
+
+  const isCaptain = (t.players || []).length === 0;
+
+  return {
+    ...t,
+    players: [...(t.players || []), playerId],
+    captainId: isCaptain ? playerId : t.captainId,
+  };
+});
         const isCaptain = (t.players || []).length === 0;
         return {
           ...t,

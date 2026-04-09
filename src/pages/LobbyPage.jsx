@@ -12,7 +12,7 @@ export default function LobbyPage() {
     if (!sessionCode) navigate("/");
   }, [sessionCode]);
 
-  // ✅ window.location.origin — works on any device on same network
+  
   const joinUrl = `${window.location.origin}/join?code=${sessionCode}`;
 
   return (

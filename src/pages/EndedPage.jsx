@@ -1,5 +1,4 @@
-// pages/EndedPage.jsx
-// Game over screen — shows final positions and a play-again button
+
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGame } from "../context/GameContext";
@@ -15,7 +14,7 @@ export default function EndedPage() {
     if (!sessionCode && teams.length === 0) navigate("/");
   }, []);
 
-  // Sort teams by position descending
+  
   const ranked = [...teams].sort((a, b) => b.position - a.position);
 
   const handlePlayAgain = () => {
@@ -35,7 +34,7 @@ export default function EndedPage() {
           </p>
         </div>
 
-        {/* Final standings */}
+        
         <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden mb-4">
           <div className="px-5 py-3 border-b border-gray-100">
             <p className="font-medium">Final Standings</p>
@@ -46,18 +45,18 @@ export default function EndedPage() {
               return (
                 <div key={team.id} className="px-5 py-4">
                   <div className="flex items-center gap-4">
-                    {/* Rank */}
+                    
                     <span className="text-2xl w-8 text-center">
                       {RANK_EMOJI[index] || "👏"}
                     </span>
-                    {/* Team dot */}
+                    
                     <div
                       className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0"
                       style={{ background: team.color.bg }}
                     >
                       {team.name[0]}
                     </div>
-                    {/* Name + bar */}
+                  
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-baseline mb-1">
                         <span className="font-medium">{team.name}</span>
@@ -65,7 +64,7 @@ export default function EndedPage() {
                           {team.position}/14
                         </span>
                       </div>
-                      {/* Progress bar */}
+                    
                       <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                         <div
                           className="h-full rounded-full transition-all"
@@ -80,7 +79,7 @@ export default function EndedPage() {
           </div>
         </div>
 
-        {/* Session summary */}
+        
         <div className="bg-white rounded-2xl border border-gray-200 p-5 mb-4">
           <p className="font-medium mb-3">Session</p>
           <div className="grid grid-cols-2 gap-3">
@@ -95,7 +94,7 @@ export default function EndedPage() {
           </div>
         </div>
 
-        {/* Actions */}
+        
         <div className="flex flex-col gap-3">
           <button
             onClick={handlePlayAgain}

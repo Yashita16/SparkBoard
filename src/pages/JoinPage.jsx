@@ -1,5 +1,4 @@
-// pages/JoinPage.jsx
-// Players land here after scanning QR code or entering session code
+
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useGame } from "../context/GameContext";
@@ -12,13 +11,13 @@ export default function JoinPage() {
 
   const { loadSession, joinGame, teams, sessionCode } = useGame();
 
-  const [step, setStep] = useState("loading");    // loading | form | error
+  const [step, setStep] = useState("loading"); //    loading | form | error
   const [playerName, setPlayerName] = useState("");
   const [selectedTeamId, setSelectedTeamId] = useState("");
   const [joining, setJoining] = useState(false);
   const [resolvedCode, setResolvedCode] = useState("");
 
-  // On mount: resolve code from URL and load session from Firebase
+ 
   useEffect(() => {
     const init = async () => {
       const code = (paramCode || searchParams.get("code") || "").toUpperCase().trim();
@@ -36,13 +35,12 @@ export default function JoinPage() {
         return;
       }
 
-      // Session loaded — show form
+      
       setStep("form");
     };
 
     init();
-  }, []); // run once on mount only — loadSession is stable (useCallback with [])
-
+  }, []); 
   const handleJoin = async () => {
     const name = playerName.trim();
     if (!name)          { toast.error("Enter your name");  return; }
@@ -70,7 +68,7 @@ export default function JoinPage() {
     }
   };
 
-  // ── Loading ──────────────────────────────────────────────
+ 
   if (step === "loading") {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">

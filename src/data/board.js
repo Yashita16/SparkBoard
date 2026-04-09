@@ -1,7 +1,4 @@
-// ============================================================
-// board.js — Board tile layout (15 tiles)
-// Tile types: move | talk | create | wildcard | start | finish
-// ============================================================
+
 
 export const BOARD_TILES = [
   { id: 0,  type: "start",    label: "START",    emoji: "🚀", color: "#10b981" },
@@ -21,7 +18,7 @@ export const BOARD_TILES = [
   { id: 14, type: "finish",   label: "FINISH",   emoji: "🎉", color: "#10b981" },
 ];
 
-export const TOTAL_TILES = BOARD_TILES.length - 1; // 0–14
+export const TOTAL_TILES = BOARD_TILES.length - 1; 
 
 export const TILE_COLORS = {
   start:    { bg: "#d1fae5", border: "#10b981", text: "#065f46" },
@@ -32,7 +29,7 @@ export const TILE_COLORS = {
   wildcard: { bg: "#fce7f3", border: "#ec4899", text: "#9d174d" },
 };
 
-// Team token colors — assigned in order
+
 export const TEAM_COLORS = [
   { bg: "#ef4444", text: "#fff", name: "Red"    },
   { bg: "#3b82f6", text: "#fff", name: "Blue"   },

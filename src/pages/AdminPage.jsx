@@ -1,5 +1,4 @@
-// pages/AdminPage.jsx
-// Hidden admin panel — manage prompts
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGame } from "../context/GameContext";
@@ -66,7 +65,7 @@ export default function AdminPage() {
           </button>
         </div>
 
-        {/* Toolbar */}
+       
         <div className="flex flex-wrap gap-2 mb-4">
           {["all", "move", "talk", "create", "wildcard"].map(f => (
             <button
@@ -87,7 +86,7 @@ export default function AdminPage() {
           </button>
         </div>
 
-        {/* Add form */}
+        
         {showForm && (
           <div className="bg-white rounded-2xl border border-gray-200 p-5 mb-4">
             <p className="font-medium mb-4">New Prompt</p>
@@ -127,7 +126,7 @@ export default function AdminPage() {
           </div>
         )}
 
-        {/* Prompts table */}
+        
         <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
           <table className="w-full">
             <thead>
