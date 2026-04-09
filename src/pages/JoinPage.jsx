@@ -16,6 +16,7 @@ export default function JoinPage() {
   const [selectedTeamId, setSelectedTeamId] = useState("");
   const [joining, setJoining] = useState(false);
   const [resolvedCode, setResolvedCode] = useState("");
+  
 
  
   useEffect(() => {

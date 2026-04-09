@@ -1,31 +1,32 @@
-# 🎲 IceBreaker Multiplayer Game
+# IceBreaker Multiplayer Game
 
-A real-time multiplayer web game built using **React + Firebase**, designed for team interaction, fun challenges, and engagement during events or hackathons.
-
----
-
-##  Features
-
-* 🔗 **QR Code Join System** – Players can join instantly via QR scan or session code
-* 👥 **Real-time Multiplayer** – All players sync live using Firebase
-* 🎯 **Team-based Gameplay** – Multiple teams compete on a shared board
-* 🎲 **Dice Rolling Mechanism** – Captains control turns and game flow
-* 💬 **Dynamic Prompts** – Different challenge types (Move, Talk, Create, Wildcard)
-* 📱 **Mobile Friendly UI** – Optimized player view for phones
-* ⚡ **Instant Updates** – Firebase Realtime Database ensures live sync
+IceBreaker is a real-time multiplayer web application built using React and Firebase.
+It is designed to make group interactions more engaging through team-based gameplay and interactive challenges.
 
 ---
 
-##  Tech Stack
+## Features
 
-* **Frontend:** React, Tailwind CSS
-* **Backend / Realtime:** Firebase Realtime Database
-* **Routing:** React Router
-* **Other:** QR Code Generator
+* Players can join the game using a QR code or session code
+* Real-time synchronization across all devices using Firebase
+* Team-based gameplay with multiple participants
+* Dice-based turn system controlled by team captains
+* Different types of challenges such as move, talk, create, and wildcard
+* Mobile-friendly interface for player participation
+* Instant updates without page refresh
 
 ---
 
-##  Project Structure
+## Tech Stack
+
+* Frontend: React, Tailwind CSS
+* Backend / Realtime: Firebase Realtime Database
+* Routing: React Router
+* Additional: QR code generation
+
+---
+
+## Project Structure
 
 ```
 src/
@@ -47,37 +48,31 @@ src/
 
 ---
 
-##  Setup Instructions
+## Setup Instructions
 
-### 1. Clone the repository
+1. Install dependencies:
 
-```bash
-git clone <your-repo-link>
-cd project-folder
 ```
-
-### 2. Install dependencies
-
-```bash
 npm install
 ```
 
-### 3. Run the project
+2. Run the development server:
 
-```bash
+```
 npm run dev
 ```
 
 ---
 
-##  Firebase Setup
+## Firebase Setup
 
-1. Go to Firebase Console
-2. Create a new project
-3. Enable **Realtime Database**
-4. Replace config in `firebase.js`
+1. Create a project in Firebase
+2. Enable Realtime Database
+3. Add your Firebase configuration in `firebase.js`
 
-```js
+Example:
+
+```
 const firebaseConfig = {
   apiKey: "YOUR_KEY",
   authDomain: "YOUR_DOMAIN",
@@ -87,40 +82,33 @@ const firebaseConfig = {
 
 ---
 
-##  Security Note
+## How to Use
 
-* Firebase config is safe to expose in frontend
-* Make sure database rules are not fully open in production
-
----
-
-##  How to Play
-
-1. Host creates a session
-2. Share QR code or session code
-3. Players join and select a team
-4. Captain rolls dice
-5. Complete challenges and progress on board
-6. First team to reach the end wins 🎉
+1. The host creates a session
+2. Players join using the QR code or session code
+3. Players select their team
+4. The captain rolls the dice to start the turn
+5. Teams complete challenges and move forward
+6. The first team to reach the final position wins
 
 ---
 
-##  Future Improvements
+## Future Improvements
 
-* Auto reconnect after refresh
-* Player disconnect handling
-* Host-only controls
-* Better animations & UI transitions
+* Auto reconnect after page refresh
+* Better handling of player disconnects
+* Restrict certain actions to the host
+* Improve UI transitions and animations
 
 ---
 
-##  Author
+## Author
 
-**Yashita**
+Yashita
 Full Stack Developer
 
 ---
 
-##  Note
+## Note
 
-This project was built as a **hackathon-ready real-time multiplayer app**, demonstrating Firebase integration, state management, and responsive UI design.
+This project demonstrates real-time data synchronization, state management, and responsive design for multiplayer applications.
