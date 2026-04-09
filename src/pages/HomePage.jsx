@@ -8,14 +8,24 @@ export default function HomePage() {
   const { loadSession } = useGame();
   const navigate = useNavigate();
   const [code, setCode] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleJoin = () => {
+  const handleJoin = async () => {
     const c = code.trim().toUpperCase();
     if (c.length < 4) { toast.error("Enter a valid session code"); return; }
-    if (loadSession(c)) {
-      navigate(`/join?code=${c}`);
-    } else {
-      toast.error("Session not found. Check the code.");
+
+    setLoading(true);
+    try {
+      const found = await loadSession(c); // ✅ properly awaited
+      if (found) {
+        navigate(`/join?code=${c}`);
+      } else {
+        toast.error("Session not found. Check the code.");
+      }
+    } catch {
+      toast.error("Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -48,21 +58,22 @@ export default function HomePage() {
               onChange={e => setCode(e.target.value.toUpperCase())}
               onKeyDown={e => e.key === "Enter" && handleJoin()}
               maxLength={6}
+              disabled={loading}
             />
             <button
               onClick={handleJoin}
-              className="px-5 py-2.5 bg-gray-900 text-white rounded-xl font-medium hover:bg-gray-800 transition-colors text-sm"
+              disabled={loading}
+              className="px-5 py-2.5 bg-gray-900 text-white rounded-xl font-medium hover:bg-gray-800 transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
-              Join
+              {loading
+                ? <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                : "Join"}
             </button>
           </div>
         </div>
 
         <div className="text-center mt-6">
-          <button
-            onClick={() => navigate("/admin")}
-            className="text-xs text-gray-400 hover:text-gray-600"
-          >
+          <button onClick={() => navigate("/admin")} className="text-xs text-gray-400 hover:text-gray-600">
             Admin Panel
           </button>
         </div>

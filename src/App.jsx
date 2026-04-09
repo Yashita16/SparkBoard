@@ -38,6 +38,7 @@ export default function App() {
           <Route path="/player"    element={<PlayerViewPage />} />
           <Route path="/ended"     element={<EndedPage />} />
           <Route path="/admin"     element={<AdminPage />} />
+          <Route path="/join" element={<JoinPage />} />
           <Route path="*"          element={<Navigate to="/" />} />
         </Routes>
       </GameProvider>
